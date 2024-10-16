@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class MyThemeData {
   static ThemeData myTheme() {
@@ -77,64 +76,64 @@ class MyThemeData {
   }
 }
 
-// Đoạn code mẫu cho widget Scaffold để hiển thị ảnh nền SVG
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+// // Đoạn code mẫu cho widget Scaffold để hiển thị ảnh nền SVG
+// class HomeScreen extends StatelessWidget {
+//   const HomeScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          // Hiển thị ảnh SVG làm nền
-          SvgPicture.asset(
-            'assets/svg/screenbg_compass_home.svg',
-            fit: BoxFit.cover, // Để ảnh bao phủ toàn màn hình
-            width: double.infinity,
-            height: double.infinity,
-          ),
-          // Các widget khác sẽ được hiển thị trên ảnh nền
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Compass App',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Stack(
+//         children: [
+//           // Hiển thị ảnh SVG làm nền
+//           SvgPicture.asset(
+//             'assets/svg/screenbg_compass_home.svg',
+//             fit: BoxFit.cover, // Để ảnh bao phủ toàn màn hình
+//             width: double.infinity,
+//             height: double.infinity,
+//           ),
+//           // Các widget khác sẽ được hiển thị trên ảnh nền
+//           Center(
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 Text(
+//                   'Compass App',
+//                   style: Theme.of(context).textTheme.headlineMedium,
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
-// Đoạn code mẫu cho AppBar để hiển thị ảnh nền SVG trong AppBar
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+// // Đoạn code mẫu cho AppBar để hiển thị ảnh nền SVG trong AppBar
+// class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+//   const CustomAppBar({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: const Text('Compass App'),
-      flexibleSpace: Stack(
-        children: [
-          SvgPicture.asset(
-            'assets/svg/screenbg_compass_home.svg',
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
-          ),
-          Container(
-            color: Colors.black.withOpacity(0.3), // Hiệu ứng mờ cho ảnh nền
-          ),
-        ],
-      ),
-    );
-  }
+//   @override
+//   Widget build(BuildContext context) {
+//     return AppBar(
+//       title: const Text('Compass App'),
+//       flexibleSpace: Stack(
+//         children: [
+//           SvgPicture.asset(
+//             'assets/svg/screenbg_compass_home.svg',
+//             fit: BoxFit.cover,
+//             width: double.infinity,
+//             height: double.infinity,
+//           ),
+//           Container(
+//             color: Colors.black.withOpacity(0.3), // Hiệu ứng mờ cho ảnh nền
+//           ),
+//         ],
+//       ),
+//     );
+//   }
 
-  @override
-  Size get preferredSize => const Size.fromHeight(56.0);
-}
+//   @override
+//   Size get preferredSize => const Size.fromHeight(56.0);
+// }

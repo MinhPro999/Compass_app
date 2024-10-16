@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:homescreen_compassapp/theme/theme_data.dart';
+import 'package:homescreen_compassapp/screen/home_screen.dart';
+import 'package:homescreen_compassapp/theme/theme_data.dart'; // Đảm bảo file này tồn tại
 
-void main(List<String> args) {
+void main() {
   runApp(const AppCompass());
 }
 
@@ -11,7 +12,7 @@ class AppCompass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: MyThemeData.myTheme(),
+      theme: MyThemeData.myTheme(), // Sử dụng theme tùy chỉnh
       home: const HomeScreen(),
     );
   }
