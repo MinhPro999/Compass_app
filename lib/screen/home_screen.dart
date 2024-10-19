@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Ảnh nền SVG bao phủ toàn màn hình
+          // Hiển thị ảnh nền SVG
           SvgPicture.asset(
             'assets/svg/screenbg_compass_home.svg',
             fit: BoxFit.cover,
@@ -21,22 +21,38 @@ class HomeScreen extends StatelessWidget {
           SafeArea(
             child: Column(
               children: [
-                const UserInfoBar(), // Thanh trạng thái người dùng
-                const SizedBox(height: 16), // Khoảng cách giữa các phần
-                // GridView hiển thị các tùy chọn
+                const UserInfoBar(),
+                const SizedBox(height: 16),
+                // Nội dung chính của màn hình
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: GridView.count(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
+                    child: Column(
                       children: [
-                        compassE('La bàn Đông tứ mệnh'),
-                        compassW('La bàn Tây tứ mệnh'),
-                        compassNomal('La bàn cơ bản'),
-                        compass24('La bàn 24 sơn hướng'),
-                        compassOld('La bàn bát trạch theo tuổi'),
+                        // Mục "La bàn bát trạch theo tuổi"
+                        compassOldFullWidth(
+                          'assets/images/old_compass.png',
+                          'La bàn bát trạch theo tuổi',
+                        ),
+                        const SizedBox(height: 10),
+                        // GridView cho các mục còn lại
+                        Expanded(
+                          child: GridView.count(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 8,
+                            children: [
+                              compassWidget('assets/images/east_compass.png',
+                                  'La bàn Đông tứ mệnh'),
+                              compassWidget('assets/images/west_compass.png',
+                                  'La bàn Tây tứ mệnh'),
+                              compassWidget('assets/images/normal_compass.png',
+                                  'La bàn cơ bản'),
+                              compassWidget('assets/images/24_directions.png',
+                                  'La bàn 24 sơn hướng'),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
