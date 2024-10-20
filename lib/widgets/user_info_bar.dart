@@ -11,16 +11,52 @@ class _UserInfoBarState extends State<UserInfoBar> {
   String _gender = 'Nam'; // Giá trị mặc định
   final TextEditingController _yearController = TextEditingController();
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Container(
+  //     color: const Color(0xff1b1f3c), // Màu nền của status bar
+  //     padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //       children: [
+  //         Image.asset(
+  //           'assets/svg/logo.svg',
+  //           height: 44,
+  //           width: 44,
+  //         ),
+  //         _buildGenderSelection(), // Widget chọn giới tính
+  //         _buildYearOfBirthField(), // Widget nhập năm sinh
+  //       ],
+  //     ),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: const Color(0xff1b1f3c), // Màu nền của status bar
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildGenderSelection(), // Widget chọn giới tính
-          _buildYearOfBirthField(), // Widget nhập năm sinh
+          SizedBox(
+            height: 44, // Chiều cao của container chứa ảnh
+            width: 44, // Chiều rộng của container chứa ảnh
+            child: Image.asset(
+              'assets/images/logo2-01.png',
+              fit: BoxFit.contain, // Đảm bảo ảnh không bị méo
+            ),
+          ),
+
+          const SizedBox(width: 8), // Khoảng cách giữa logo và radio
+          Expanded(
+            child: _buildGenderSelection(), // Phân bổ không gian linh hoạt
+          ),
+          const SizedBox(width: 8), // Khoảng cách giữa radio và ô nhập năm
+          SizedBox(
+            width: 120, // Đặt chiều rộng cố định cho TextField
+            child: _buildYearOfBirthField(),
+          ),
         ],
       ),
     );
@@ -61,20 +97,43 @@ class _UserInfoBarState extends State<UserInfoBar> {
     return SizedBox(
       width: 120,
       child: TextField(
+        textAlign: TextAlign.center,
         controller: _yearController,
         style: const TextStyle(color: Colors.white),
         decoration: InputDecoration(
           hintText: 'Năm sinh',
-          hintStyle: const TextStyle(color: Colors.white70),
+          hintStyle: const TextStyle(
+            color: Colors.white70,
+          ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            borderSide: const BorderSide(color: Color(0xff74d9fd), width: 2),
+            borderRadius: BorderRadius.circular(8.0), // Bo tròn các góc của ô
+            borderSide: const BorderSide(
+              color: Color(0xff74d9fd), // Màu viền
+              width: 2, // Độ dày viền
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            // Viền khi ô không được nhấn
+            borderRadius:
+                BorderRadius.circular(8.0), // Bo tròn khi không nhấn vào
+            borderSide: const BorderSide(
+              color: Color(0xff74d9fd), // Màu viền khi không nhấn vào
+              width: 2,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            // Viền khi ô được nhấn vào
+            borderRadius: BorderRadius.circular(8.0), // Bo tròn khi nhấn vào
+            borderSide: const BorderSide(
+              color: Color(0xff74d9fd),
+              width: 2,
+            ),
           ),
           contentPadding: const EdgeInsets.symmetric(horizontal: 12.0),
         ),
         keyboardType: TextInputType.number,
         onSubmitted: (value) {
-          print('Năm sinh: $value'); // Xử lý năm sinh
+          // print('Năm sinh: $value'); // Xử lý năm sinh
         },
       ),
     );
