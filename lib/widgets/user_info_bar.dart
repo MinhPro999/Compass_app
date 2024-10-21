@@ -40,8 +40,8 @@ class _UserInfoBarState extends State<UserInfoBar> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
-            height: 44, // Chiều cao của container chứa ảnh
-            width: 44, // Chiều rộng của container chứa ảnh
+            height: 56, // Chiều cao của container chứa ảnh
+            width: 56, // Chiều rộng của container chứa ảnh
             child: Image.asset(
               'assets/images/logo2-01.png',
               fit: BoxFit.contain, // Đảm bảo ảnh không bị méo

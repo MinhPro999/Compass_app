@@ -22,7 +22,28 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 const UserInfoBar(),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
+                // Dòng tiêu đề chức năng
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 4),
+                  child: Text(
+                    'Chọn Chức Năng',
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      // shadows: [
+                      //   Shadow(
+                      //     blurRadius: 4.0,
+                      //     color: Colors.black.withOpacity(0.5),
+                      //     offset: const Offset(2, 2),
+                      //   ),
+                      // ],
+                    ),
+                    // textAlign: TextAlign.start,
+                  ),
+                ),
+                // const SizedBox(height: 8),
                 // Nội dung chính của màn hình
                 Expanded(
                   child: Padding(
@@ -42,14 +63,22 @@ class HomeScreen extends StatelessWidget {
                             crossAxisSpacing: 8,
                             mainAxisSpacing: 8,
                             children: [
-                              compassWidget('assets/images/east_compass.png',
-                                  'La bàn Đông tứ mệnh'),
-                              compassWidget('assets/images/west_compass.png',
-                                  'La bàn Tây tứ mệnh'),
-                              compassWidget('assets/images/normal_compass.png',
-                                  'La bàn cơ bản'),
-                              compassWidget('assets/images/24_directions.png',
-                                  'La bàn 24 sơn hướng'),
+                              compassWidget(
+                                'assets/images/east_compass.png',
+                                'La bàn Đông tứ mệnh',
+                              ),
+                              compassWidget(
+                                'assets/images/west_compass.png',
+                                'La bàn Tây tứ mệnh',
+                              ),
+                              compassWidget(
+                                'assets/images/normal_compass.png',
+                                'La bàn cơ bản',
+                              ),
+                              compassWidget(
+                                'assets/images/24_directions.png',
+                                'La bàn 24 sơn hướng',
+                              ),
                             ],
                           ),
                         ),
