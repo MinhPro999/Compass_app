@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:homescreen_compassapp/widgets/funtion_fullwidth.dart';
 import 'package:homescreen_compassapp/widgets/user_info_bar.dart';
-import 'package:homescreen_compassapp/widgets/wedget_gidview.dart';
+import 'package:homescreen_compassapp/widgets/funtion_gidview.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,72 +18,63 @@ class HomeScreen extends StatelessWidget {
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
+            colorFilter: ColorFilter.mode(
+              Colors.black
+                  .withOpacity(0.3), // Áp dụng màu đen 30% để giảm độ sáng
+              BlendMode.srcATop,
+            ),
           ),
           SafeArea(
             child: Column(
               children: [
-                const UserInfoBar(),
+                const UserInfoBar(), // Đặt bên ngoài SingleChildScrollView
                 const SizedBox(height: 8),
-                // Dòng tiêu đề chức năng
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 4),
-                  child: Text(
-                    'Chọn Chức Năng',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      // shadows: [
-                      //   Shadow(
-                      //     blurRadius: 4.0,
-                      //     color: Colors.black.withOpacity(0.5),
-                      //     offset: const Offset(2, 2),
-                      //   ),
-                      // ],
-                    ),
-                    // textAlign: TextAlign.start,
-                  ),
-                ),
-                // const SizedBox(height: 8),
-                // Nội dung chính của màn hình
                 Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        // Mục "La bàn bát trạch theo tuổi"
-                        compassOldFullWidth(
-                          'assets/images/old_compass.png',
-                          'La bàn bát trạch theo tuổi',
-                        ),
-                        const SizedBox(height: 10),
-                        // GridView cho các mục còn lại
-                        Expanded(
-                          child: GridView.count(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Chọn Chức Năng',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          // Nội dung chính của màn hình
+                          funtionFullWidth(
+                            'assets/images/old_compass.png',
+                            'La bàn bát trạch theo tuổi',
+                          ),
+                          const SizedBox(height: 10),
+                          GridView.count(
                             crossAxisCount: 2,
                             crossAxisSpacing: 8,
                             mainAxisSpacing: 8,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
                             children: [
-                              compassWidget(
-                                'assets/images/east_compass.png',
-                                'La bàn Đông tứ mệnh',
-                              ),
-                              compassWidget(
-                                'assets/images/west_compass.png',
-                                'La bàn Tây tứ mệnh',
-                              ),
-                              compassWidget(
+                              funtionGidview(
                                 'assets/images/normal_compass.png',
                                 'La bàn cơ bản',
                               ),
-                              compassWidget(
+                              funtionGidview(
                                 'assets/images/24_directions.png',
                                 'La bàn 24 sơn hướng',
                               ),
                             ],
                           ),
-                        ),
-                      ],
+                          const SizedBox(height: 10),
+                          funtionFullWidth(
+                            'assets/images/old_compass.png',
+                            'Thước lỗ ban',
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
