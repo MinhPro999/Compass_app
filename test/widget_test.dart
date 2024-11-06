@@ -9,14 +9,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: QuaiNumberCalculator(),
     );
   }
 }
 
 class QuaiNumberCalculator extends StatefulWidget {
+  const QuaiNumberCalculator({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _QuaiNumberCalculatorState createState() => _QuaiNumberCalculatorState();
 }
 
